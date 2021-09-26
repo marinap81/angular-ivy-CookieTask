@@ -1,0 +1,12 @@
+<label for="item-input">Add a new Cookie:</label> 
+<input type="text" id="item-input" #newCookie> 
+<button (click)="addNewCookie(newCookie.value)">Add to Cookie List</button>
+
+<h1>{{ selectedCookie }}</h1>
+<!-- selectedCookie is  binded with selectCookie from app.componenet.ts-->
+
+
+
+
+
+ 

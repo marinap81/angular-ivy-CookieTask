@@ -1,0 +1,27 @@
+<div class="displayCookie">
+<h3>
+<p>Select a cookie from the drop down</p>
+<select [(ngModel)]="selectCookie">
+<option *ngFor="let cookie of cookieList" [ngValue]="cookie" >{{ cookie.name }}</option>
+</select>
+
+
+<p>Display the cookies colour</p>
+  <select [(ngModel)]="selectCookie">
+    <option *ngFor="let cookie of cookieList" [ngValue]="cookie">{{ cookie.colour }}</option>
+</select>
+
+<!-- additional display option as a list for the cookie-->
+<!--https://angular.io/guide/attribute-binding-->
+
+<h3>
+  Show the Colour
+</h3>
+<div *ngFor="let cookie of cookieList" class="cookie" [style.background-color]="cookie.colour">
+</div>
+
+
+
+<app-createcookies (newItemEvent)="addCookie($event)"></app-createcookies> 
+  <!--connects Child.ts event trigger to method set up in parent.ts-->
+
