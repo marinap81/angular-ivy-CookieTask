@@ -23,15 +23,18 @@ export class AppComponent  implements OnInit{
 
   
   //CREATING A NEW COOKIE
-  //newCookie: string;
+  newCookiename: string;
   //newCookieColour: Colours;
-
+  
 
   ngOnInit() {
     this.selectCookie = this.cookieList[0];
   }
+    
     //function to CREATE NEW COOKIE 
-    addCookie(newCookie: Cookie) 
-    {this.cookieList.push(newCookie);}
+    addCookie(newCookiename: string) 
+    {
+      let cookie = new Cookie(newCookiename)
+      this.cookieList.push(cookie);}
   
 }
