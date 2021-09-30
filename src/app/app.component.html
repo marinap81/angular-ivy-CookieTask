@@ -45,10 +45,27 @@
     <p>
       to:
 
-      <select [(ngModel)]="selectColor">
+      <select [(ngModel)]="selectColor"  
+      (ngModelChange)="onColourChange($event)"> <!--change colour event-->
         <option *ngFor="let item of colorList | keyvalue">{{item.value}}</option>
       </select>
 
     </p>
+
+    <p>
+    Add a chocolate chip to the cookie
+    <input
+      [(ngModel)]="chocChips"
+      type="number"
+      min="0"
+      style="width: 60px"
+    />
+    <button (click)="addChocolateChip()">Add Chocolate chips</button>
+    <br /><br />
+    Cookie has {{ this.selectCookie.chocchipNum }} chocolate chips.
+  </p>
+
+
+
   </h3>
 </div>
