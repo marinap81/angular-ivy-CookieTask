@@ -1,27 +1,54 @@
 <div class="displayCookie">
-<h3>
-<p>Select a cookie from the drop down</p>
-<select [(ngModel)]="selectCookie">
-<option *ngFor="let cookie of cookieList" [ngValue]="cookie" >{{ cookie.name }}</option>
-</select>
+  <h3>
+    <p>Select a cookie from the drop down</p>
+    <select
+      [(ngModel)]="selectCookie"
+      [style.width.px]="140"
+      [style.height.px]="30"
+    >
+      <option *ngFor="let cookie of cookieList" [ngValue]="cookie">
+        {{ cookie.name }}
+      </option>
+    </select>
 
-
-<p>Display the cookies colour</p>
+    <!--<p>Display the cookies colour</p> THIS WILL SHOW THE COLOUR VIA A DROP DOWN BOX 
   <select [(ngModel)]="selectCookie">
     <option *ngFor="let cookie of cookieList" [ngValue]="cookie">{{ cookie.colour }}</option>
-</select>
+</select> -->
 
-<!-- additional display option as a list for the cookie-->
-<!--https://angular.io/guide/attribute-binding-->
+    <!-- additional display option as a list for the cookie-->
+    <!--https://angular.io/guide/attribute-binding-->
 
-<h3>
-  Show the Colour
-</h3>
-<div *ngFor="let cookie of cookieList" class="cookie" [style.background-color]="cookie.colour">
+    <h3>Show the Colour</h3>
+    <option
+      *ngFor="let cookie of cookieList"
+      class="cookie"
+      [style.height.px]="10"
+      [style.background-color]="cookie.colour">
+       </option>
+
+    <!-- edit colour -->
+
+    <app-createcookies (newItemEvent)="addCookie($event)"></app-createcookies>
+    <!--connects Child.ts event trigger to method set up in parent.ts-->
+
+    <p>
+      Change colour of
+      <select
+        [(ngModel)]="selectCookie"
+        [style.width.px]="140"
+        [style.height.px]="30">
+        <option *ngFor="let cookie of cookieList" [ngValue]="cookie">{{ cookie.name }}</option>
+      </select>
+    </p>
+
+    <p>
+      to:
+
+      <select [(ngModel)]="selectColor">
+        <option *ngFor="let item of colorList | keyvalue">{{item.value}}</option>
+      </select>
+
+    </p>
+  </h3>
 </div>
-
-
-
-<app-createcookies (newItemEvent)="addCookie($event)"></app-createcookies> 
-  <!--connects Child.ts event trigger to method set up in parent.ts-->
-
