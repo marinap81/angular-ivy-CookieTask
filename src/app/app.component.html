@@ -16,16 +16,23 @@
     <option *ngFor="let cookie of cookieList" [ngValue]="cookie">{{ cookie.colour }}</option>
 </select> -->
 
-    <!-- additional display option as a list for the cookie-->
+    <!-- additional display option as a list for the cookie, show all colours in a list-->
     <!--https://angular.io/guide/attribute-binding-->
 
-    <h3>Show the Colour</h3>
+    <!--<h3>Show the Colour</h3>
     <option
       *ngFor="let cookie of cookieList"
       class="cookie"
       [style.height.px]="10"
       [style.background-color]="cookie.colour">
-       </option>
+       </option>  -->
+
+        <!--Show only the selected cookies colour -->
+    <option
+    class="cookie"
+    [style.height.px]="10"
+    [style.background-color]="selectCookie.colour"
+  ></option> 
 
     <!-- edit colour -->
 
